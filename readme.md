@@ -70,8 +70,8 @@ Script **sadece oyun detay sayfalarında** çalışır. Ana sayfada veya sayfala
 - Geliştirilmiş kullanıcı arayüzü
 - Sıralı indirme özelliği iyileştirildi
 
-##Destek
+## Destek
 Herhangi bir sorun yaşarsanız veya öneriniz varsa lütfen yorum bırakın.
 
-##Uyarı
+## Uyarı
 Bu script sadece kişisel kullanım içindir. Telif hakkı korumalı içerikleri indirirken yerel yasalara uygun hareket etmeyi unutmayın.
