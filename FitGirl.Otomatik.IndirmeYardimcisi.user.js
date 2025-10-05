@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         FitGirl Otomatik Fuckingfast İndirme Yardımcısı
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  FitGirl sayfasında tüm fuckingfast.co bağlantılarını eşleştirir ve yeni sekmede indirme butonuna otomatik olarak tıklar.
 // @author       You
 // @match        https://fitgirl-repacks.site/*
@@ -14,9 +14,21 @@
 (function() {
     'use strict';
 
-    // --- Ana sayfa mantığı (fitgirl-repacks.site) ---
+    // --- Alt sayfa mantığı (fitgirl-repacks.site) ---
+    // Ana sayfada çalışmayacak, sadece oyun detay sayfalarında çalışacak
     if (window.location.hostname.includes('fitgirl-repacks.site')) {
-        console.log('[FitGirl Yardımcısı] Script ana sayfada başlatıldı.');
+        // Ana sayfayı kontrol et - ana sayfa genellikle sadece domain veya domain/ şeklindedir
+        const currentPath = window.location.pathname;
+        const isMainPage = currentPath === '/' || currentPath === '' || 
+                          currentPath === '/index.html' || 
+                          currentPath.match(/^\/page\/\d+\/?$/); // sayfalama sayfaları da ana sayfa sayılır
+        
+        if (isMainPage) {
+            console.log('[FitGirl Yardımcısı] Ana sayfada, script çalıştırılmıyor.');
+            return; // Ana sayfada çalıştırma
+        }
+        
+        console.log('[FitGirl Yardımcısı] Script oyun detay sayfasında başlatıldı.');
 
         const checkInterval = setInterval(() => {
             // Bağlantıları ve içerik eklenebilecek hedef konumu bulana kadar sürekli kontrol et
